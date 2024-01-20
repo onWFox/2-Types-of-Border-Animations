@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    gap: 5vw;
+}
+span{
+    z-index: 10;
+}
+.icon{
+    width: 50px;
+    height: 50px;
+}
+.animated_card2,
+.animated_card{
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 500px;
+    width: 350px;
+    background-image: url(./assests/bg.png);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.animated_card::before{
+    position: absolute;
+    content: '';
+    height: 500px;
+    width: 350px;
+    background: tomato;
+    border-radius: 15px;
+    z-index: -1;
+    transition: 0.25s;
+    animation: animate 2s linear infinite;
+}
+.animated_card:hover::before{
+    height: 512px;
+    width: 362px;
+}
+
+@keyframes animate{
+    50%{
+        filter: hue-rotate(350deg);
+    }
+}
+/* The second card animated_card2 */
+.animated_card2{
+    overflow: hidden;
+}
+.animated_card2::before{
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 180%;
+    background: #fff;
+    transform: rotate(45deg);
+}
+.animated_card2:hover::before{
+    animation: animate2 2s linear infinite;
+}
+@keyframes animate2{
+    from{
+        transform: rotate(0deg); 
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.animated_card2::after{
+    position: absolute;
+    content: '';
+    inset: 5px;
+    background-image: url(./assests/bg.png);
+    border-radius: 8px;
+}
